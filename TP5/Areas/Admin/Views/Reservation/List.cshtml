@@ -1,0 +1,64 @@
+﻿@model ReservationListVM
+@{
+    ViewData["Title"] = "Liste des réservations";
+}
+
+<div id="product-list-page">
+    <div class="row">
+        <div class="col-12">
+
+            <table class="table table-sm table-bordered table-striped table-hover">
+                <tr>
+                    <!--
+                    <th>Code</th>
+                    <th>Nom du produit</th>
+                    <th>Catégorie</th>
+                    <th>Quantité en stock</th>
+                    -->
+                    <!-- Permet d'utiliser l'attribut Display(Name="...") de propriété du modèle -->
+                    <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
+
+                    <th>@Html.DisplayNameFor(model => model.Reservations[0].Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.Reservations[0].Nom)</th>
+                    <th>@Html.DisplayNameFor(model => model.Reservations[0].Courriel)</th>
+                    <th>Nombre de personnes</th>
+                    <th>Date de réservation</th>
+                    <th>Choix de menu</th>
+                    <th>Actions</th>
+                </tr>
+                @if (Model.Reservations.Count > 0)
+                {
+                    foreach (Reservations reservation in Model.Reservations)
+                    {
+                        <tr>
+                            <!--
+                            <td>@*product.Code*@</td>
+                            <td>@*product.Name*@</td>
+                            <td>@*product.QuantityInStock*@</td>
+                            -->
+                            <!-- Génère le html selon les attributs de propriété du modèle. Comme par exemple, l'attribut DisplayFormat(...) -->
+                            <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
+
+                            <td>@Html.DisplayFor(model => reservation.Id)</td>
+                            <td>@Html.DisplayFor(model => reservation.Nom)</td>
+                            <td>@Html.DisplayFor(model => reservation.Courriel)</td>
+                            <td>@Html.DisplayFor(model => reservation.NbPersonne)</td>
+                            <td>@Html.DisplayFor(model => reservation.DateReservation)</td>
+                            <td>@Model.GetChoixName(reservation.MenuChoiceId)</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@reservation.Id">Éditer</a>
+                                <a asp-action="Delete" asp-route-id="@reservation.Id">Supprimer</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">Aucune réservation trouvée.</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

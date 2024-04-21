@@ -1,0 +1,60 @@
+﻿@model ChoixListVM
+@{
+    ViewData["Title"] = "Liste des choix de menu";
+}
+
+<div id="product-list-page">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title">
+                <h2>Liste des Choix</h2>
+                <p><a asp-action="Create">Ajouter un Choix</a></p>
+            </div>
+
+            <table class="table table-sm table-bordered table-striped table-hover">
+                <tr>
+                    <!--
+                    <th>Code</th>
+                    <th>Nom du produit</th>
+                    <th>Catégorie</th>
+                    <th>Quantité en stock</th>
+                    -->
+                    <!-- Permet d'utiliser l'attribut Display(Name="...") de propriété du modèle -->
+                    <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
+
+                    <th>@Html.DisplayNameFor(model => model.Choices[0].Id)</th>
+                    <th>@Html.DisplayNameFor(model => model.Choices[0].Description)</th>
+                    <th>Actions</th>
+                </tr>
+                @if (Model.Choices.Count > 0)
+                {
+                    foreach (Choix choix in Model.Choices)
+                    {
+                        <tr>
+                            <!--
+                            <td>@*product.Code*@</td>
+                            <td>@*product.Name*@</td>
+                            <td>@*product.QuantityInStock*@</td>
+                            -->
+                            <!-- Génère le html selon les attributs de propriété du modèle. Comme par exemple, l'attribut DisplayFormat(...) -->
+                            <!-- Permet de gérer l'affichage du modèle à un seul endroit -->
+
+                            <td>@Html.DisplayFor(model => choix.Id)</td>
+                            <td>@Html.DisplayFor(model => choix.Description)</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@choix.Id">Éditer</a>
+                                <a asp-action="Delete" asp-route-id="@choix.Id">Supprimer</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">Aucun choix de menu.</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

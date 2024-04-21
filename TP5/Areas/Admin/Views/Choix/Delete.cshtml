@@ -1,0 +1,33 @@
+﻿@model ChoixDeleteVM
+@{
+    ViewData["Title"] = "Supprimer un choix";
+}
+
+<div id="reservation-delete-page">
+    <div class="row">
+        <div class="offset-md-1 offset-lg-2 col-md-10 col-lg-8">
+            <div class="page-title">
+                <h2>Supprimer un choix</h2>
+            </div>
+            <div class="form-section">
+                <h5>Êtes-vous certain de vouloir supprimer ce choix ?</h5>
+                <hr />
+                <div class="row details-row">
+                    <div class="col-sm-6">@Html.DisplayNameFor(model => model.Choix.Id) : </div>
+                    <div class="col-sm-6">@Html.DisplayFor(model => model.Choix.Id)</div>
+                </div>
+                <div class="row details-row">
+                    <div class="col-sm-6">@Html.DisplayNameFor(model => model.Choix.Description) : </div>
+                    <div class="col-sm-6">@Html.DisplayFor(model => model.Choix.Description)</div>
+                </div>
+                <hr />
+                <form asp-action="Delete">
+                    <input type="submit" value="Supprimer" class="btn btn-danger" />
+                </form>
+            </div>
+            <div class="links">
+                <a asp-action="List">Retour à la liste des choix</a>
+            </div>
+        </div>
+    </div>
+</div>

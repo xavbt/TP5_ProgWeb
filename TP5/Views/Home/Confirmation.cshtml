@@ -1,0 +1,26 @@
+﻿@model ReservationDetailsVM
+
+<div>
+    <h4>Confirmation</h4>
+    <hr />
+    <div class="row details-row">
+        <div class="col-sm-6">@Html.DisplayNameFor(model => model.Reservation.Id) : </div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Reservation.Id)</div>
+    </div>
+    <div class="row details-row">
+        <div class="col-sm-6">@Html.DisplayNameFor(model => model.Reservation.Nom) : </div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Reservation.Nom)</div>
+    </div>
+    <div class="row details-row">
+        <div class="col-sm-6">@Html.DisplayNameFor(model => model.Reservation.MenuChoiceId) : </div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Reservation.MenuChoiceId)</div>
+    </div>
+    <div class="row details-row">
+        <div class="col-sm-6">@Html.DisplayNameFor(model => model.Reservation.Courriel) : </div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Reservation.Courriel)</div>
+    </div>
+    <hr />
+</div>
+<div>
+    <a asp-action="Index">Retourner à la page d'accueil</a>
+</div>

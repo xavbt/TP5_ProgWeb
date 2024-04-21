@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Tableau de bord";
+}
+
+<div id="dashboard-page">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title">
+                <h2>Tableau de bord</h2>
+            </div>
+            <div class="container text-center">
+                <div class="row align-items-start">
+                <div class="col">
+                    <div class="image-section">
+                        <img src="~/img/menu.png" alt="Choix" class="img-thumbnail img-fluid" />
+                    </div>
+                </div>
+            <div class="col">
+                <div class="image-section">
+                    <img src="~/img/reserver.png" alt="Réservation" class="img-thumbnail img-fluid" />
+                </div>
+            </div>
+            </div>
+            </div>
+            <a asp-area="Admin" asp-controller="Choix" asp-action="List">Aller à la liste des choix</a> |
+            <a asp-area="Admin" asp-controller="Reservation" asp-action="List">Aller à la liste des réservations</a>
+        </div>
+    </div>
+</div>
